@@ -70,7 +70,7 @@ void update_directional_field()
     
     Eigen::VectorXd effort;
     Eigen::MatrixXcd powerField;
-    directional::power_field(V, F, b, bc, N, powerField);
+    directional::power_field(V, F, b, bc, Eigen::MatrixXd(), N, powerField);
     directional::power_to_representative(V,F, powerField,N,representative);
     representative.rowwise().normalize();
     directional::representative_to_raw(V,F,representative,N, rawField);

@@ -1114,7 +1114,7 @@ public:
          -gradVector[0].to_double()*ETriPoints2D[1].x().to_double()-gradVector[1].to_double()*ETriPoints2D[1].y().to_double(),
          -gradVector[0].to_double()*ETriPoints2D[2].x().to_double()-gradVector[1].to_double()*ETriPoints2D[2].y().to_double();
          
-         /*cout<<"invM: "<<endl;
+        / *cout<<"invM: "<<endl;
          for (int r=0;r<2;r++)
          for (int c=0;c<3;c++)
          cout<<invM[r][c].to_double()<<","<<endl;

@@ -166,7 +166,7 @@ int main(int argc, char *argv[])
   bc.resize(0, 3);
 
   cout<<"Computing initial field"<<endl;
-  directional::power_field(VCoarse, FCoarse, b, bc, N, powerField);
+  directional::power_field(VCoarse, FCoarse, b, bc, Eigen::MatrixXd(), N, powerField);
   powerField.array()/=powerField.cwiseAbs().array();
   directional::power_to_raw(VCoarse,FCoarse,powerField, N, rawFieldCoarse);
    

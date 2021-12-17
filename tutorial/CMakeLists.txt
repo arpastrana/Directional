@@ -56,6 +56,7 @@ if(TUTORIALS_CHAPTER1)
   add_subdirectory("103_StreamlineTracing")
   add_subdirectory("104_FaceVertexEdgeData")
   add_subdirectory("105_Sparsity")
+  add_subdirectory("106_StressGlyphRendering")
 endif()
 
 # Chapter 2
@@ -85,6 +86,7 @@ if(TUTORIALS_CHAPTER5)
   add_subdirectory("503_SeamsSingsRounding")
   add_subdirectory("504_LinearReductions")
   add_subdirectory("505_Meshing")
+  add_subdirectory("506_MeshingStressFields")
 endif()
 
 # Chapter 6
