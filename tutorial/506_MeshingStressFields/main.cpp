@@ -110,8 +110,8 @@ int print_help() {
             << "<rawfield_1>: The name of the first .rawfield file that stores the N-RoSy field to use to generate a new mesh."<< std::endl
             << "<degree_1>: The degree (N) of the first N-RoSy field."<< std::endl
             << "<length_ratio_1> [0.05]: Controls parametrization and mesh density of the first raw field (Smaller value -> denser mesh)." << std::endl
-            << "<round_seams_1> [0]: Boolean for whether to round seams or round singularities." << std::endl
-            << "<integral_seamless_1> [1]: Boolean flag for whether do full translational seamless." << std::endl
+            << "<round_seams_1> [0]: Boolean for whether to round seams or round singularities. More handsome output if set to false?" << std::endl
+            << "<integral_seamless_1> [1]: Boolean flag for whether do full translational seamless. Can go really bad if set to false" << std::endl
             << "<rawfield_2>: The name of the second .rawfield file to use to generate another new mesh" << std::endl
             << "<degree_2>: The degree (N) of the first N-RoSy field."<< std::endl
             << "<length_ratio_2> [0.05]: Controls parametrization and mesh density of the second rawfield (Smaller value -> denser mesh)." << std::endl
