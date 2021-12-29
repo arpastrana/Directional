@@ -29,6 +29,7 @@ int degreeField[NUM_N];
 double lengthRatio[NUM_N];
 bool roundSeams[NUM_N];
 bool integralSeamless[NUM_N];
+bool exportMesh[NUM_N];
 char *rawFieldName[NUM_N];
 
 Eigen::MatrixXi FMeshWhole, FMeshCut[NUM_N];
@@ -112,11 +113,13 @@ int print_help() {
             << "<length_ratio_1> [0.05]: Controls parametrization and mesh density of the first raw field (Smaller value -> denser mesh)." << std::endl
             << "<round_seams_1> [0]: Boolean for whether to round seams or round singularities. More handsome output if set to false?" << std::endl
             << "<integral_seamless_1> [1]: Boolean flag for whether do full translational seamless. Can go really bad if set to false" << std::endl
+            << "<export_mesh_1> [1]: Boolean flag for whether to export mesh from the generated parametrization" << std::endl
             << "<rawfield_2>: The name of the second .rawfield file to use to generate another new mesh" << std::endl
             << "<degree_2>: The degree (N) of the first N-RoSy field."<< std::endl
             << "<length_ratio_2> [0.05]: Controls parametrization and mesh density of the second rawfield (Smaller value -> denser mesh)." << std::endl
             << "<round_seams_2> [0]: Boolean for whether to round seams or round singularities." << std::endl
-            << "<integral_seamless_2> [1]: Boolean flag for whether do full translational seamless." << std::endl;
+            << "<integral_seamless_2> [1]: Boolean flag for whether do full translational seamless." << std::endl
+            << "<export_mesh_2> [1]: Boolean flag for whether to export mesh from the generated parametrization" << std::endl;
   return 0;
 }
 
@@ -145,12 +148,14 @@ int main(int argc, char *argv[])
   lengthRatio[0] = atof(argv[4]);
   roundSeams[0] = string_to_bool(argv[5]);
   integralSeamless[0] = string_to_bool(argv[6]);
+  exportMesh[0] = string_to_bool(argv[7]);
   // field 1
-  rawFieldName[1] = argv[7];
-  degreeField[1] = atoi(argv[8]);
-  lengthRatio[1] = atof(argv[9]);
-  roundSeams[1] = string_to_bool(argv[10]);
-  integralSeamless[1] = string_to_bool(argv[11]);
+  rawFieldName[1] = argv[8];
+  degreeField[1] = atoi(argv[9]);
+  lengthRatio[1] = atof(argv[10]);
+  roundSeams[1] = string_to_bool(argv[11]);
+  integralSeamless[1] = string_to_bool(argv[12]);
+  exportMesh[1] = string_to_bool(argv[13]);
 
   // log to console or not
   bool verbose=true;
@@ -206,7 +211,7 @@ int main(int argc, char *argv[])
     std::cout<<"Done!"<<std::endl;
     
     // mesh only if N-RoSy field's degree is greater than 2
-    if (degreeField[i] > 2){
+    if (degreeField[i] > 2 && exportMesh[i] == true){
       // setting up mesh data from integration data
       std::cout<<"Setting up mesh data from integration data #"<<i<<std::endl;
       directional::MeshFunctionIsolinesData mfiData;
