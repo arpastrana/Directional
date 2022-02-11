@@ -13,7 +13,7 @@ option(TUTORIALS_CHAPTER3 "Compile chapter 3" ON)
 option(TUTORIALS_CHAPTER4 "Compile chapter 4" ON)
 option(TUTORIALS_CHAPTER5 "Compile chapter 5" ON)
 option(TUTORIALS_CHAPTER6 "Compile chapter 6" ON)
-
+option(TUTORIALS_CHAPTER7 "Compile chapter 7" ON)
 
 
 ### libIGL options:
@@ -56,7 +56,6 @@ if(TUTORIALS_CHAPTER1)
   add_subdirectory("103_StreamlineTracing")
   add_subdirectory("104_FaceVertexEdgeData")
   add_subdirectory("105_Sparsity")
-  add_subdirectory("106_StressGlyphRendering")
 endif()
 
 # Chapter 2
@@ -86,12 +85,19 @@ if(TUTORIALS_CHAPTER5)
   add_subdirectory("503_SeamsSingsRounding")
   add_subdirectory("504_LinearReductions")
   add_subdirectory("505_Meshing")
-  add_subdirectory("506_MeshingStressFields")
 endif()
 
 # Chapter 6
 if(TUTORIALS_CHAPTER6)
   add_subdirectory("601_SubdivisionFields")
+endif()
+
+# Chapter 7: ARPJ
+if(TUTORIALS_CHAPTER7)
+  add_subdirectory("701_StressGlyphRendering")
+  add_subdirectory("702_MeshingStressFields")
+  add_subdirectory("703_MeshingStressFieldsDMS")
+  add_subdirectory("704_StresslineTracingDMS")
 endif()
 
 
